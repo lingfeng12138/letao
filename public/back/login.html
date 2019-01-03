@@ -23,11 +23,12 @@
                           <div class="col-sm-9">
                             <input type="email" class="form-control" id="username" placeholder="请输入账号">
                           </div>
+                          <!-- autocomplete="off" -->
                         </div>
                         <div class="form-group">
                           <label for="password" class="col-sm-3 control-label">密　码：</label>
                           <div class="col-sm-9">
-                            <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                            <input autocomplete="off" type="password" class="form-control" id="password" placeholder="请输入密码">
                           </div>
                         </div>
                         <div class="form-group">
@@ -41,5 +42,8 @@
             </div>
         </div>
     </div>
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
