@@ -1,0 +1,7 @@
+
+http://localhost:3000/manage/login.html
+
+用户名 root  密码  123456
+
+localhost:3000/mobile/
+用户名: itcast   密码:  111111
