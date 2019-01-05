@@ -23,3 +23,39 @@ $(document).ajaxStop(function(){
         NProgress.done();
     },1000)
 })
+
+
+//公共功能
+// 1.二级菜单
+// 2.左侧边栏切换
+// 3.退出功能
+
+$(function(){
+    $('.lt_aside .category').click(function(){
+        $(this).next().stop().slideToggle()
+    })
+
+    $('.icon_left').click(function(){
+        $('.lt_aside').toggleClass("hidemenu");
+        $('.lt_main').toggleClass("hidemenu");
+        $('.lt_topbar').toggleClass("hidemenu");
+    })
+
+    //退出
+    $('.icon_logout').click(function(){
+        $('#logoutModal').modal("show");
+    });
+
+    $('#logoutBtn').click(function(){
+        $.ajax({
+            type: "get",
+            url: "/employee/employeeLogout",
+            dataType:"json",
+            success:function(info){
+                if(info.success){
+                    location.href = "login.html"
+                }
+            }
+        })
+    })
+})
