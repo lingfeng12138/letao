@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./css/common01.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+</head>
+
+<body>
+
+    <!-- 左侧(固定定位) -->
+    <div class="lt_aside">
+        <div class="brand">
+            <a href="#">乐淘后端管理</a>
+        </div>
+        <div class="user">
+            <img src="./images/huaji.jpeg" alt="">
+            <p>超级管理员</p>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+                <li><a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+                    <div class="child" style="display:block">
+                        <a href="first.html" class="current">一级分类</a>
+                        <a href="second.html">二级分类</a>
+                    </div>
+                </li>
+                <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 右侧主体部分 -->
+    <div class="lt_main">
+        <div class="lt_topbar">
+            <a href="#" class="pull-left icon_left"><i class="glyphicon glyphicon-align-justify"></i></a>
+            <a href="#" class="pull-right icon_right"><i class="glyphicon glyphicon-log-out"  data-toggle="modal" data-target="#myModal"></i></a>
+        </div>
+
+        <!-- 底部内容部分，流式布局 -->
+        <div class="container-fluid">
+            <ol class="breadcrumb mt_20">
+                <li><a href="index.html">管理系统</a></li>
+                <li class="active">首页</li>
+            </ol>
+        </div>
+    </div>
+  
+  <!-- Modal -->
+  <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <i class="glyphicon glyphicon-info-sign"></i>你确定要退出管理系统吗？
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./js/common01.js"></script>
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <script src="./js/index01.js"></script>
+    <script src="./js/islogin01.js"></script>
+  
+</body>
+
+</html>
