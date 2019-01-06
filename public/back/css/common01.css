@@ -136,3 +136,8 @@ ul{
     width: 48%;
     background-color: #123456;
 }
+.table.table-bordered th,
+.table.table-bordered td{
+    text-align: center;
+    vertical-align: middle;
+}

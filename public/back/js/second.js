@@ -102,7 +102,6 @@ $(function(){
           });
     $("#form").on("success.form.bv",function(e){
         e.preventDefault();
-
         //通过ajax提交
         $.ajax({
             type:"post",
