@@ -18,7 +18,7 @@ $(function(){
                 $("tbody").html(htmlStr);
 
                 $("#paginator").bootstrapPaginator({
-                    bootstrapMajoyVersion:3,
+                    bootstrapMajorVersion:3,
                     currentPage:info.page,
                     totalPages:Math.ceil(info.total/info.size),
                     onPageClicked:function(a,b,c,page){
@@ -57,7 +57,24 @@ $(function(){
         e.preventDefault();
 
         //通过ajax提交
-        
+        $.ajax({
+            type:"post",
+            url:"/category/addTopCategory",
+            data:$("#form").serialize(),
+            dataType:"json",
+            success:function(info){
+                if(info.success){
+                    $("#addModal").modal("hide");
+
+                    //重新渲染第一页
+                    currentPage = 1;
+                    render();
+
+                    //重置表单内容，内容和状态都重置
+                    $('#form').data("bootstrapValidator").resetForm(true);
+                }
+            }
+        })
     })
 
 
