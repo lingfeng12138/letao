@@ -54,6 +54,13 @@ $(function(){
     $(".dropdown-menu").on("click","a",function(){
         var txt = $(this).text();
         $("#dropdownText").text(txt);
+
+        //获取id
+        var id = $(this).data("id");
+        //设置给隐藏域，用于提交
+        $("[name='categoryId']").val(id);
+        //更新状态
+        $("#form").data("bootstrapValidator").updateStatus("categoryId","VALID")
     });
 
     //配置fileupload
@@ -63,12 +70,19 @@ $(function(){
             // console.log(data);
             var picUrl = data.result.picAddr;
             $("#imgBox img").attr("src",picUrl);
+
+            //将地址赋值给隐藏域，用于提交
+            $('[name="brandLogo"]').val(picUrl);
+            //给隐藏域赋值完成，更新数据
+            $("#form").data("bootstrapValidator").updateStatus("brandLogo","VALID")
         }
     })
 
     //二级分类数据提交
         //校验配置
         $('#form').bootstrapValidator({
+            //对hidden进行校验
+            excluded:[],
             // 配置图标
             feedbackIcons: {
               valid: 'glyphicon glyphicon-ok',    // 校验成功
@@ -84,13 +98,13 @@ $(function(){
                   }
                 }
               },
-            //   categoryId:{
-            //     validators: {
-            //         notEmpty: {
-            //           message: "请选择一级分类"
-            //         }
-            //       }
-            //   },
+              categoryId:{
+                validators: {
+                    notEmpty: {
+                      message: "请选择一级分类"
+                    }
+                  }
+              },
               brandName:{
                 validators: {
                     notEmpty: {
@@ -110,7 +124,7 @@ $(function(){
             dataType:"json",
             success:function(info){
                 if(info.success){
-                    console.log(info);
+                    // console.log(info);
                     $("#addModal").modal("hide");
 
                     //重新渲染第一页
@@ -119,6 +133,10 @@ $(function(){
 
                     //重置表单内容，内容和状态都重置
                     $('#form').data("bootstrapValidator").resetForm(true);
+
+                    //下拉菜单和图片不是表单元素，需手动重置
+                    $('#dropdownText').text("请选择一级分类");
+                    $("#imgBox img").attr("src","../images/huaji.jpeg")
                 }
             }
         })

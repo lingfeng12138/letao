@@ -89,7 +89,7 @@
                
                         <div class="form-group">
                          <div class="dropdown">
-                             <button class="btn btn-default dropdown-toggle" name="categoryId" type="button" data-toggle="dropdown">
+                             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                                 <span id="dropdownText">请选择一级分类</span>
                                 <span class="caret"></span>
                              </button>
@@ -97,6 +97,8 @@
                                  <!-- 挖坑 -->
                              </ul>
                          </div>
+                         <!-- 用于提交的隐藏域 -->
+                         <input type="hidden" name="categoryId">
                         </div>
                         <div class="form-group">
                           <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类名称">
@@ -107,6 +109,7 @@
                         </div>
                         <div class="form-group" id="imgBox">
                             <img style="width: 100px" name:"brandLogo" src="./images/huaji.jpeg" alt="">
+                            <input type="hidden" name="brandLogo">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -150,7 +153,7 @@
     <!-- 添加模板 -->
     <script type="text/html" id="dropdownTpl">
         {{each rows v i}}
-        <li><a href="#">{{v.categoryName}}</a></li>
+        <li><a data-id="{{v.id}}" href="#">{{v.categoryName}}</a></li>
         {{/each}}
     </script>
 
